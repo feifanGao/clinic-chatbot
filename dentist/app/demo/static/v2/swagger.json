@@ -1,0 +1,119 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "dentist booking system",
+    "version": "1.0.0",
+    "title": "book Dentist"
+  },
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "dentist",
+      "description": "dentists"
+    }
+  ],
+  "paths": {
+    "/dentist": {
+      "get": {
+        "tags": [
+          "Dentist"
+        ],
+        "summary": "list all dentists",
+        "description": "get all of dentists",
+        "operationId": "searchDentist",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Dentist"
+              }
+            }
+          },
+          "404": {
+            "description": "dentist not found"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/dentist/{name}": {
+      "get": {
+        "tags": [
+          "Dentist"
+        ],
+        "summary": "Get dentist information",
+        "description": "Get dentist information detail",
+        "operationId": "dentistInfo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name of dentist",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Dentist"
+              }
+            }
+          },
+          "404": {
+            "description": "dentist not found"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "definitions": {
+    "Dentist": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John"
+        },
+        "location": {
+          "type": "string",
+          "example": "Sydney Children's Hospital"
+        },
+        "specialization": {
+          "type": "string",
+          "example": "Paediatric Dentistry"
+        }
+      }
+    }
+  }
+}
