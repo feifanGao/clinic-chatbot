@@ -1,0 +1,7 @@
+Flask
+Jinja2
+Flask-RESTful
+jsonschema
+six
+rivescript==1.14.9
+Flask-Cors==3.0.9

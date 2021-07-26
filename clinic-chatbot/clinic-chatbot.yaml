@@ -1,0 +1,41 @@
+swagger: '2.0'
+info:
+  description: 'This is a Chatbot for patients to book appointment with dentists'
+  version: 1.0.0
+  title: Clinic Chatbot
+basePath: /v2
+schemes:
+  - https
+  - http
+paths:
+  /ask:
+    get:
+      summary: patients input
+      description: The endpoint takes a query parameter names 'expression' and returns a json object with 'answer' as key.
+      operationId: getReply
+      produces:
+        - application/json
+      parameters:
+      - in: query
+        name: expression
+        description: user input e.g. Show me all dentists available
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              answer:
+                type: string
+        404:
+          description: Sorry I'm not able to answer your request
+      security:
+        - basicAuth: []
+        
+securityDefinitions:
+  basicAuth:
+    type: basic
+security:
+  - basicAuth: []
