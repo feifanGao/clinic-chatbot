@@ -1,0 +1,25 @@
+id,dentist,time,date,status
+1,Dr Alice,9,11.11,available
+2,Dr Alice,10,11.11,available
+3,Dr Alice,11,11.11,available
+4,Dr Alice,12,11.11,available
+5,Dr Alice,13,11.11,available
+6,Dr Alice,14,11.11,available
+7,Dr Alice,15,11.11,available
+8,Dr Alice,16,11.11,available
+9,Dr Johnson,9,11.11,available
+10,Dr Johnson,10,11.11,available
+11,Dr Johnson,11,11.11,available
+12,Dr Johnson,12,11.11,available
+13,Dr Johnson,13,11.11,available
+14,Dr Johnson,14,11.11,available
+15,Dr Johnson,15,11.11,unavailable
+16,Dr Johnson,16,11.11,available
+17,Dr Hart,9,11.11,unavailable
+18,Dr Hart,10,11.11,unavailable
+19,Dr Hart,11,11.11,unavailable
+20,Dr Hart,12,11.11,available
+21,Dr Hart,13,11.11,unavailable
+22,Dr Hart,14,11.11,unavailable
+23,Dr Hart,15,11.11,unavailable
+24,Dr Hart,16,11.11,unavailable

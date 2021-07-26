@@ -1,0 +1,146 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "timeslot reserving system",
+    "version": "1.0.0",
+    "title": "book Dentist"
+  },
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "timeslot",
+      "description": "timeslots for dentists"
+    }
+  ],
+  "paths": {
+    "/timeslot": {
+      "get": {
+        "tags": [
+          "timeslot"
+        ],
+        "summary": "list avaliable timeslot of dentists",
+        "description": "get all available timeslot of dentists",
+        "operationId": "searchTimeslot",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dentist",
+            "in": "query",
+            "description": "name of dentist that need to search",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Timeslot"
+              }
+            }
+          },
+          "404": {
+            "description": "slot not found"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "timeslot"
+        ],
+        "summary": "reserve or cancel timeslots",
+        "description": "reserve a available timeslot of dentists",
+        "operationId": "reserveTimeslot",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dentist",
+            "in": "query",
+            "description": "name of the dentist patient want to choose",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "description": "start time of the booking",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Timeslot"
+              }
+            }
+          },
+          "404": {
+            "description": "slot not found"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "definitions": {
+    "Timeslot": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "dentist": {
+          "type": "string",
+          "example": "Alice James"
+        },
+        "date": {
+          "type": "string",
+          "example": "11.11"
+        },
+        "time": {
+          "type": "number",
+          "description": "appointment starting time",
+          "example": 15
+        },
+        "status": {
+          "type": "string",
+          "description": "Timeslot status",
+          "enum": [
+            "available",
+            "unavailable"
+          ]
+        }
+      }
+    }
+  }
+}
